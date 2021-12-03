@@ -13,6 +13,8 @@ const app = express();
 const clientPath = `${__dirname}/../client`;
 const server = http.createServer(app);
 
+const userNames = {};
+
 const io = new Server(server, {});
 
 io.on("connection", (socket) => {
@@ -32,15 +34,22 @@ io.on("connection", (socket) => {
     socket.to(sendTo).emit("displayPrivateMessage", message, user);
   });
 
-  // Show all clients for all users
-  io.emit("clients", Array.from(io.sockets.sockets.keys()));
+  socket.on("userName", (userName) => {
+    const currentUserId = socket.id;
+    userNames[currentUserId] = userName;
+    // Show all clients for all users
+    io.emit("clients", Array.from(io.sockets.sockets.keys()), userNames, currentUserId);
+    socket.emit('deleteFromSelect', currentUserId)
+  });
 
   // Display client id
   socket.emit("displayClientId", socket.id);
 
   // Remove client from all clients when someone disconnects
   socket.on("disconnect", () => {
-    io.emit("clients", Array.from(io.sockets.sockets.keys()));
+    const id = socket.id;
+    delete userNames[id];
+    io.emit("clients", Array.from(io.sockets.sockets.keys()), userNames);
   });
 });
 
