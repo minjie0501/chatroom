@@ -18,7 +18,7 @@ const userNames = {};
 const io = new Server(server, {});
 
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  // console.log(socket.id);
   socket.on("sendToAll", (message, user) => {
     /// listening to sendToAll events
     io.emit("displayMessage", message, user); //send displayMessage event to everyone
@@ -55,6 +55,4 @@ io.on("connection", (socket) => {
 
 app.use("/", express.static(clientPath));
 
-server.listen(PORT, () => {
-  console.log("server running on " + PORT);
-});
+server.listen(process.env.PORT || 3000);
