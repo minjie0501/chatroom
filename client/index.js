@@ -11,11 +11,17 @@ const myId = document.getElementById("my-id");
 const btnLogin = document.getElementById("btn-login");
 const login = document.getElementsByClassName("login")[0];
 const userNameInput = document.getElementById("user-name");
+const container = document.getElementById('container')
 let userNames = {};
+
+// TODO: clear inputs after message sent
+// TODO: show private message to the client who sent the message ?
+// TODO: make website responsible 
 
 btnLogin.addEventListener("click", () => {
   const userName = userNameInput.value;
   login.style.display = "none";
+  container.style.backgroundColor = 'rgb(' + 161 + ',' + 187 + ',' + 161 + ')';
 
   let socket = io.connect();
 

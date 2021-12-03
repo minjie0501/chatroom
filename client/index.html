@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id='container' class="container">
         <div id="my-id">
 
         </div>
@@ -39,7 +39,7 @@
         </div>
         <div class="row-2">
             <div>
-                <button id="send-to-all">Send to all clients</button>
+                <button id="send-to-all">Send to all</button>
             </div>
             <div>
                 <button id="send-to-me">Send to me</button>
@@ -51,7 +51,8 @@
                 <button id="send-private">Send private</button>
             </div>
             <div>
-                Send to: <select name="clients" id="clients" required>
+                <div>Send to </div>
+                <div><select name="clients" id="clients" required></select></div>
             </div>
             <span id="error">Make sure to select a user!</span>
 
@@ -63,6 +64,7 @@
         <div class="login-content">
             <div class="login-row-1">
                 <h2>Please log in</h2>
+                <p>(dummy login)</p>
             </div>
             <div class="login-row-2">
                 <div class="login-col-1">
@@ -70,7 +72,7 @@
                     <div>Password:</div>
                 </div>
                 <div class="login-col-2">
-                    <input type="text" name="user-name" id="user-name"><br>
+                    <input type="text" name="user-name" id="user-name" required><br>
                     <input type="password" name="password" id="password"><br>
                 </div>
             </div>

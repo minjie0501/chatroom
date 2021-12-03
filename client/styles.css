@@ -10,18 +10,19 @@ body {
   align-content: center;
   background-color: rgb(189, 216, 189);
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  overflow: hidden;
 }
 
 .container {
   position: absolute;
-  top: 5vh;
+  top: 3vh;
   left: 0;
   right: 0;
   height: 90vh;
   width: calc(100% - 10px);
   display: flex;
   flex-direction: column;
-  background-color: rgb(161, 187, 161);
+  /* background-color: rgb(161, 187, 161); */
   border-radius: 5%;
   padding-top: 50px;
 }
@@ -48,8 +49,49 @@ body {
 }
 
 .row-2 > div{
-    border: 1px solid red;
     height: 100%;
+    width: 100%;
+    display: flex;
+    font-size: 2rem;
+}
+
+.row-2 > div:nth-child(5){
+  display: flex;
+  flex-direction: column;
+}
+
+select{
+  width: 150px;
+  font-size: 2rem;
+  background-color: rgb(211, 228, 211);
+  border-radius: 5%;
+}
+
+
+.row-2 > div > button{
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 15px 32px;
+  border-radius: 5%;
+  background-color: rgb(189, 216, 189);
+  cursor: pointer;
+
+}
+
+.row-2 > div > textarea{
+  background-color: rgb(211, 228, 211);
+  height: 90%;
+  width: 90%;
+  border-radius: 5%;
+  font-size: 2rem;
+}
+
+.row-2 > button{
+  width: 30%;
 }
 
 .col {

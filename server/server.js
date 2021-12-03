@@ -19,6 +19,7 @@ const io = new Server(server, {});
 
 io.on("connection", (socket) => {
   // console.log(socket.id);
+  
   socket.on("sendToAll", (message, user) => {
     /// listening to sendToAll events
     io.emit("displayMessage", message, user); //send displayMessage event to everyone
